@@ -1,1 +1,165 @@
-index.html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Laury ❤️ Nosso Sonho</title>
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff4e8a, #ffcc70);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.card {
+    background: rgba(0,0,0,0.45);
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 550px;
+    width: 90%;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+h1 { font-size: 3em; margin: 10px 0; }
+h2 { font-weight: normal; margin-bottom: 20px; }
+
+p { font-size: 1.2em; }
+
+.heart {
+    font-size: 3.5em;
+    animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.photos img {
+    width: 100px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid white;
+}
+
+button {
+    background: #ff4e8a;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #ff2f75;
+}
+
+.surpresa {
+    display: none;
+    margin-top: 25px;
+    font-size: 1.3em;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1em;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="login">
+    <div class="heart">❤️</div>
+    <h2>Área secreta</h2>
+    <p>Só quem faz parte do nosso sonho pode entrar</p>
+    <input type="password" id="senha" placeholder="Digite a senha">
+    <button onclick="entrar()">Entrar</button>
+</div>
+
+<div class="card" id="site" style="display:none;">
+    <div class="heart">❤️</div>
+    <h1>Laury</h1>
+    <h2>O nosso sonho é real</h2>
+
+    <p>
+        Desde <strong>29/12/2025</strong>, minha vida ganhou sentido.<br>
+        Você é o meu lugar seguro, meu amor eterno.
+    </p>
+
+    <div class="photos">
+        <img src="foto1.jpg">
+        <img src="foto2.jpg">
+        <img src="foto3.jpg">
+    </div>
+
+    <p id="contador"></p>
+
+    <iframe width="100%" height="152"
+        src="https://www.youtube.com/embed/4n7kqX2s0Ro?autoplay=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+    </iframe>
+
+    <button onclick="mostrarSurpresa()">Clique para uma surpresa 💌</button>
+
+    <div class="surpresa" id="surpresa">
+        Laury, você é o meu sonho realizado.<br>
+        Te amo hoje, amanhã e sempre 💖
+    </div>
+</div>
+
+<script>
+function entrar() {
+    const senha = document.getElementById("senha").value;
+    if (senha === "laury2912") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("site").style.display = "block";
+    } else {
+        alert("Senha incorreta 💔");
+    }
+}
+
+function mostrarSurpresa() {
+    document.getElementById("surpresa").style.display = "block";
+}
+
+// contador
+const inicio = new Date("2025-12-29T00:00:00");
+const agora = new Date();
+const diff = agora - inicio;
+const dias = Math.floor(diff / (1000*60*60*24));
+document.getElementById("contador").innerHTML =
+    `Vivendo esse sonho há <strong>${dias}</strong> dias 💕`;
+</script>
+
+</body>
+</html>
